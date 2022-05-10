@@ -1,5 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body></body>
+    <head>
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="app.css">
+    </head>
+    <body class="mainPage">
+        <form class="form">
+            <h1>Registration Form</h1>
+            <h3>Full Name:</h3>
+            <input type="text">
+            <h3>Username:</h3>
+            <input type="text" minlength="6">
+            <h3>Password:</h3>
+            <input type="password" minlength="8">
+            <h3>Age:</h3>
+            <input type="number" placeholder="Ex. 1234">
+            <h3>Email:</h3>
+            <input type="email" id="email" name="email">
+            <h3>Gender:</h3>
+            <select name="gender" id="gender">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="nothing">Refuse to State</option>
+            </select>
+            <h3>Accept terms and conditions:</h3>
+            <input type="checkbox" name="terms" id="terms">
+            <input type="button" value="submit" class="subButton">
+        </form>
+    </body>
 </html>
