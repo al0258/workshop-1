@@ -3,19 +3,51 @@
     <head>
         <title>Registration Form</title>
         <link rel="stylesheet" href="app.css">
+        <script>
+            function validateForm() {
+                var formGood = true;
+                let fullName = document.forms["myForm"]["fullName"].value;
+                let username = document.forms["myForm"]["username"].value;
+                let gender = document.forms["myForm"]["gender"].value;
+                let terms = document.forms["myForm"]["terms"];
+
+                if(fullName.length === 0){
+                    alert("Enter full name");
+                    formGood = false;
+                }
+                if(/\s/g.test(username) || username.length === 0){
+                    alert("Username not valid");
+                    formGood = false;
+                }
+                if(gender === "none"){
+                    alert("Pick gender");
+                    formGood = false;
+                }
+                if(!terms.checked){
+                    alert("Check the box for terms!");
+                    formGood = false;
+                }
+                if (formGood){
+                    alert("Sending form");
+                }
+                else {
+                    alert ("Form was not sent");
+                }
+            }
+        </script>
     </head>
     <body class="mainPage">
         <div class="formdiv">
-            <form action="submit" class="form">
+            <form class="form" name="myForm" onsubmit="validateForm()">
             <h1>Registration Form</h1>
             <h3>Full Name:</h3>
-            <input type="text">
+            <input type="text" name="fullName" minlength="1">
             <h3>Username:</h3>
-            <input type="text" minlength="6">
+            <input type="text" name="username" minlength="6">
             <h3>Password:</h3>
-            <input type="password" minlength="8">
+            <input type="password" name="password" minlength="8">
             <h3>Age:</h3>
-            <input type="number" placeholder="Ex. 1234">
+            <input type="number" name="age" placeholder="Ex. 1234" min="8" max="120">
             <h3>Email:</h3>
             <input type="email" id="email" name="email">
             <h3>Gender:</h3>
@@ -29,7 +61,7 @@
             <h3>Accept terms and conditions:</h3>
             <input type="checkbox" name="terms" id="terms">
             <br>
-            <input type="button" value="submit" class="subButton">
+            <button type="submit" value="submit" class="subButton">submit</button>
         </form>
         </div>
     </body>
